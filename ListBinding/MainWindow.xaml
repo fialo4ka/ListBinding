@@ -7,7 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListView Name="lvBezirke">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ListView Name="lvBezirke" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView ColumnHeaderToolTip="zugeordnete User je Bezirk">
                     <GridViewColumn x:Name="colBezirk" Header="Some Data from model" DisplayMemberBinding="{Binding Bezirk}"/>
@@ -23,6 +32,17 @@
                     </GridViewColumn>
                     <GridViewColumn Header="User.Loginname" DisplayMemberBinding="{Binding User.Loginname}"/>
                     <GridViewColumn Header="User.Name" DisplayMemberBinding="{Binding User.Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Grid.Row="1" Content="click" Click="Button_Click"/>
+        <Button Grid.Row="1" Grid.Column="1" Content="clear" Click="Button_Click_1"/>
+        <ListView Grid.Row="2"  Grid.ColumnSpan="2" Name="lvBezirkeClick">
+            <ListView.View>
+                <GridView ColumnHeaderToolTip="zugeordnete User je Bezirk">
+                    <GridViewColumn Header="Some Data from model" DisplayMemberBinding="{Binding Bezirk}"/>
+                    <GridViewColumn Header="User.Loginname onClick" DisplayMemberBinding="{Binding User.Loginname}"/>
+                    <GridViewColumn Header="User.Name onClick" DisplayMemberBinding="{Binding User.Name}"/>
                 </GridView>
             </ListView.View>
         </ListView>

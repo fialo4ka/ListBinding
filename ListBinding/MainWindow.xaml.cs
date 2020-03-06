@@ -21,27 +21,28 @@ namespace WpfApp8
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Dictionary<User, string> _alleUser;
-        public Dictionary<User, string> AlleUser
+        private ObservableCollection<KeyValuePair<User, string>> _alleUser;
+        public ObservableCollection<KeyValuePair<User, string>> AlleUser
         {
             get
             {
                 if (_alleUser == null)
                 {
-                    _alleUser = new Dictionary<User, string>();
-                    _alleUser.Add(new User("1 user", "1"), "1");
-                    _alleUser.Add(new User("2 user", "2"), "2");
-                    _alleUser.Add(new User("3 user", "3"), "3");
-                    _alleUser.Add(new User("4 user", "4"), "4");
-                    _alleUser.Add(new User("5 user", "5"), "5");
-                    _alleUser.Add(new User("6 user", "6"), "6");
-                    _alleUser.Add(new User("7 user", "7"), "7");
-                    _alleUser.Add(new User("8 user", "8"), "8");
+                    _alleUser = new ObservableCollection<KeyValuePair<User, string>>();
+                    _alleUser.Add(new KeyValuePair<User, string>(new User("1 user", "1"), "1"));
+                    _alleUser.Add(new KeyValuePair<User, string>(new User("2 user", "2"), "2"));
+                    _alleUser.Add(new KeyValuePair<User, string>(new User("3 user", "3"), "3"));
+                    _alleUser.Add(new KeyValuePair<User, string>(new User("4 user", "4"), "4"));
+                    _alleUser.Add(new KeyValuePair<User, string>(new User("5 user", "5"), "5"));
+                    _alleUser.Add(new KeyValuePair<User, string>(new User("6 user", "6"), "6"));
+                    _alleUser.Add(new KeyValuePair<User, string>(new User("7 user", "7"), "7"));
+                    _alleUser.Add(new KeyValuePair<User, string>(new User("8 user", "8"), "8"));
                 }
                 return _alleUser;
             }
         }
 
+        ObservableCollection<ListDetails> ListDetails;
 
         public MainWindow()
         {
@@ -52,7 +53,7 @@ namespace WpfApp8
                     new ListDetails("data 3", new User("5 user", "5")),
                 };
 
-            ObservableCollection<ListDetails> ListDetails = new ObservableCollection<ListDetails>(listDetails);
+            ListDetails = new ObservableCollection<ListDetails>(listDetails);
             InitializeComponent();
             lvBezirke.ItemsSource = ListDetails;
         }
@@ -60,6 +61,16 @@ namespace WpfApp8
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            lvBezirkeClick.ItemsSource = ListDetails;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            lvBezirkeClick.ItemsSource = null;
         }
     }
 
@@ -74,7 +85,6 @@ namespace WpfApp8
             Bezirk = bezirk;
         }
     }
-
 
     public class User
     {
