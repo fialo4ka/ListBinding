@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ListBinding/bin/Debug
+/.vs/ListBinding/v15/Server/sqlite3
+/.vs/ListBinding/v15
+/ListBinding/obj/Debug
+/ListBinding/Properties
+/BindingComboBoxInList

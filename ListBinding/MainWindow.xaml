@@ -9,19 +9,20 @@
     <Grid>
         <ListView Name="lvBezirke">
             <ListView.View>
-                <GridView ColumnHeaderToolTip="zugeordnete Benutzer je Bezirk">
-                    <GridViewColumn x:Name="colBezirk" Header="Bezirk" DisplayMemberBinding="{Binding Bezirk}"/>
-                    <GridViewColumn x:Name="colBenutzer" Header="Vertreter">
+                <GridView ColumnHeaderToolTip="zugeordnete User je Bezirk">
+                    <GridViewColumn x:Name="colBezirk" Header="Some Data from model" DisplayMemberBinding="{Binding Bezirk}"/>
+                    <GridViewColumn x:Name="colUser" Header="User.Name in ComboBox">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <ComboBox Width="300" SelectionChanged="ComboBox_SelectionChanged"
-                                                    ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}}, Path=AlleBenutzer}"
-                                                    SelectedValue="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListViewItem}}, Path=DataContext.Benutzer}" 
+                                                    ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}}, Path=AlleUser}"
+                                                    SelectedValue="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListViewItem}}, Path=DataContext.User}" 
                                                     SelectedValuePath="Key" DisplayMemberPath="Value"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn x:Name="colVan" Header="VA" DisplayMemberBinding="{Binding Benutzer.Loginname}"/>
+                    <GridViewColumn Header="User.Loginname" DisplayMemberBinding="{Binding User.Loginname}"/>
+                    <GridViewColumn Header="User.Name" DisplayMemberBinding="{Binding User.Name}"/>
                 </GridView>
             </ListView.View>
         </ListView>
