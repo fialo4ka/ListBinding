@@ -72,6 +72,11 @@ namespace WpfApp8
         {
             lvBezirkeClick.ItemsSource = null;
         }
+
+        private void ComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            ((ComboBox)sender).Text = ((ListDetails)((ComboBox)sender).DataContext).User.Name;
+        }
     }
 
     public class ListDetails
